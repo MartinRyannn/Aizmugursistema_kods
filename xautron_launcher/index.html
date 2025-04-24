@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XAUTRON Launcher</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgba(18, 18, 18, 0.95);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .logo-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            opacity: 0;
+            position: relative;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .form-container {
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #8a8a8a;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        select.input-field {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0066ff 0%, #2c79ff 100%);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #8a8a8a;
+            cursor: pointer;
+            padding: 0.5rem;
+            opacity: 0;
+        }
+
+        .close-btn:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button class="close-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <div class="logo-container">
+            <img src="/api/placeholder/200/200" alt="Logo" class="logo">
+        </div>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label class="input-label">Account ID</label>
+                <input type="text" class="input-field" id="accountId">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Access Token</label>
+                <input type="password" class="input-field" id="accessToken">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Account Type</label>
+                <select class="input-field" id="accountType">
+                    <option value="live">Live</option>
+                    <option value="practice">Practice</option>
+                </select>
+            </div>
+
+            <button class="submit-btn">Launch</button>
+        </div>
+    </div>
+
+    <script>
+        // Play welcome sound
+        const audio = new Audio('welcome.mp3');
+        
+        // Initial animation timeline
+        const tl = gsap.timeline();
+        
+        // Fade in logo
+        tl.to('.logo-container', {
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out'
+        })
+        
+        // After 3 seconds, animate logo to top and show form
+        .to('.logo-container', {
+            scale: 0.5,
+            y: -100,
+            duration: 1,
+            ease: 'power2.inOut',
+            delay: 2
+        })
+        .to('.form-container', {
+            display: 'block',
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power2.out'
+        }, '-=0.5')
+        .to('.close-btn', {
+            opacity: 1,
+            duration: 0.5
+        }, '-=0.5');
+
+        // Play welcome sound at start
+        window.addEventListener('load', () => {
+            audio.play();
+        });
+
+        // Handle form submission
+        document.querySelector('.submit-btn').addEventListener('click', async () => {
+            const data = {
+                accountId: document.getElementById('accountId').value,
+                accessToken: document.getElementById('accessToken').value,
+                accountType: document.getElementById('accountType').value
+            };
+
+            try {
+                const response = await fetch('/api/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // Handle successful submission
+                    console.log('Submission successful');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+
+        // Handle close button
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            window.close();
+        });
+    </script>
+</body>
+</html>

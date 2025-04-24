@@ -1,0 +1,15 @@
+PyQt6
+PyQt5
+pandas
+flask
+flask-cors
+requests
+numpy
+scikit-learn
+tradingview-ta
+mplfinance
+matplotlib
+networkx
+oandapyV20
+configparser
+tpqoa

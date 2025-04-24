@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.py
+tpqoa/__init__.py
+tpqoa/tpqoa.py
+tpqoa.egg-info/PKG-INFO
+tpqoa.egg-info/SOURCES.txt
+tpqoa.egg-info/dependency_links.txt
+tpqoa.egg-info/requires.txt
+tpqoa.egg-info/top_level.txt

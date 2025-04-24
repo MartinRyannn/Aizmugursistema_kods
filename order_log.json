@@ -1,0 +1,11 @@
+{"timestamp": "2025-04-17 15:27:03", "action": "SELL", "current_price": 3328.8900000000003, "limit_price": 3333, "take_profit": 3317, "stop_loss": 3341, "order_ids": ["162"]}
+{"timestamp": "2025-04-22 12:28:06", "action": "SELL", "current_price": 3462.4700000000003, "limit_price": 3467, "take_profit": 3450, "stop_loss": 3475, "order_ids": ["168"]}
+{"timestamp": "2025-04-23 09:49:36", "action": "SELL", "current_price": 3462.4700000000003, "limit_price": 3467, "take_profit": 3450, "stop_loss": 3475, "order_ids": ["174"]}
+{"timestamp": "2025-04-23 10:40:32", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["175"]}
+{"timestamp": "2025-04-23 10:42:44", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["177"]}
+{"timestamp": "2025-04-23 10:44:58", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["179"]}
+{"timestamp": "2025-04-23 10:47:11", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["181"]}
+{"timestamp": "2025-04-23 10:49:23", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["183"]}
+{"timestamp": "2025-04-23 10:51:36", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["185"]}
+{"timestamp": "2025-04-23 10:53:49", "action": "BUY", "current_price": 3462.4700000000003, "limit_price": 3458, "take_profit": 3475, "stop_loss": 3450, "order_ids": ["187"]}
+{"timestamp": "2025-04-25 01:32:42", "action": "BUY", "current_price": 3287.8, "limit_price": 3284, "take_profit": 3300, "stop_loss": 3276, "order_ids": ["10"]}
