@@ -1,4 +1,4 @@
-# XAUTRON LAUNCHER INSTALLATION GUIDE
+# KVALIFIKĀCIJAS DARBA INSTALĀCIJA
 ### !!!Programma ir tikai priekš mac lietotājiem
 
 ## INSTALĀCIJA
